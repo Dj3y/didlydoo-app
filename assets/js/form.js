@@ -4,6 +4,7 @@ import { validateForm } from "./validation_form.js";
 export function createForm(){
     const divForm = document.querySelector('.form');
     const form = document.createElement('form');
+    form.id='form'
     // form.setAttribute('action', '/index.html');
     divForm.appendChild(form);
 
@@ -56,7 +57,7 @@ export function createForm(){
     btnForm.textContent = "Ajouter";
     btnForm.setAttribute('type', 'submit');
     form.appendChild(btnForm);
-    btnForm.addEventListener('click', validateForm);
+    // btnForm.addEventListener('click', validateForm);
 
-    form.style.display='none';
+    // form.style.display='none';
 }

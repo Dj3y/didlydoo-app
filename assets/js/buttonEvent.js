@@ -1,11 +1,7 @@
 import { createForm } from "./form.js";
 
-// Appeler la fonction createForm pour créer le formulaire lors du chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
-    createForm();
-    displayForm();
-});
 
+//Display of Form
 function displayForm() {
     const selectButton = document.querySelector('#AddButton');
     console.log(selectButton);
@@ -14,8 +10,8 @@ function displayForm() {
         selectButton.addEventListener('click', (event) => {
             const displayForm = document.querySelector('.form form');
             if (displayForm) {
-                displayForm.style.display = 'block'; // Afficher le formulaire
-                console.log(displayForm);
+                // displayForm.style.display = 'block'; e
+                // console.log(displayForm);
                 console.log("tu cliques sur moi bien joué");
             } else {
                 console.error("Le formulaire avec la classe '.form' n'a pas été trouvé.");
@@ -26,4 +22,22 @@ function displayForm() {
     }
 }
 
+
+//take value of input
+function takeInputValue(){
+
+    let addInfo = document.querySelector('#form');
+
+    addInfo.addEventListener('submit', (elem) =>{
+        elem.preventDefault();
+        console.log("test de l'event : "+addInfo);
+        let title = document.querySelector('#event-title');
+        console.log("le titre = "+title.value);
+    
+    })
+
+
+}
+
 export { displayForm };
+export { takeInputValue };
