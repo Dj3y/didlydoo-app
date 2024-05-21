@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Router } from 'express' 
 
 import { createEventSchema, patchEventSchema, addDateSchema } from '../schemas/events.mjs'
 import { getDB, initEvent, patchEvent, stripTime, remapData } from '../helpers/functions.mjs'
