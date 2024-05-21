@@ -1,7 +1,10 @@
+import { validateForm } from "./validation_form.js";
+
 // création formulaire
 export function createForm(){
     const divForm = document.querySelector('.form');
     const form = document.createElement('form');
+    // form.setAttribute('action', '/index.html');
     divForm.appendChild(form);
 
     // titre 
@@ -14,6 +17,17 @@ export function createForm(){
     inputTitle.setAttribute('id', 'event-title');
     inputTitle.setAttribute('name', 'event-title');
     form.appendChild(inputTitle);
+
+    // auteur
+    const labelAuthor = document.createElement('label');
+    labelAuthor.textContent = "Auteur: ";
+    labelAuthor.setAttribute('for', 'event-author');
+    form.appendChild(labelAuthor);
+    const inputAuthor = document.createElement('input');
+    inputAuthor.setAttribute('type', 'text');
+    inputAuthor.setAttribute('id', 'event-author');
+    inputAuthor.setAttribute('name', 'event-author');
+    form.appendChild(inputAuthor);
 
     // date
     const labelDate = document.createElement('label');
@@ -40,5 +54,9 @@ export function createForm(){
     // bouton 
     const btnForm = document.createElement('button');
     btnForm.textContent = "Ajouter";
+    btnForm.setAttribute('type', 'submit');
     form.appendChild(btnForm);
+    btnForm.addEventListener('click', validateForm);
+
+    form.style.display='none';
 }
