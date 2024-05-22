@@ -11,8 +11,8 @@ export function getDB(){
                 console.log("longeur : " + data.length);
                 const sectionEvent = document.createElement('section');
                 const eventName= document.createElement('h3');
-                eventName.textContent =data.name;
-                console.log(data.name);
+                eventName.textContent = data.name;
+                console.log("ligne 15 " + data);
                 divEvent.appendChild(sectionEvent);
                 sectionEvent.appendChild(eventName);
     
@@ -34,7 +34,10 @@ export function getDB(){
     
                 sectionEvent.appendChild(table);
                 table.appendChild(headerRow);
-                headerRow.appendChild(dateHeader);
+                const dataCell = document.createElement('td');
+                dataCell.textContent = data.date;
+                console.log("ligne 39 " + dataCell.textContent);
+                headerRow.appendChild(dataCell);
             }
          
         // //affichage des événements existants
@@ -64,33 +67,39 @@ export function getDB(){
 
             sectionEvent.appendChild(table);
             table.appendChild(headerRow);
-            headerRow.appendChild(dateHeader);
-           
+        
 
             element.dates.forEach((dateInfo) => {
                 const dataCell = document.createElement('td');
                 dataCell.textContent = dateInfo.date;
                 // console.log(dataCell.textContent);
                 headerRow.appendChild(dataCell);
-
+                
                 const attendeesRow = document.createElement('tr');
                 const attendeesCell =document.createElement('td');
-                const attendeesList = dateInfo.attendees.map(attendee => attendee.name);
+                console.log(dateInfo);
+                const attendeesList = dateInfo.attendees.map(attendee => attendee.name).join(', ');
+                const arrayVide = [];
+                arrayVide.push(attendeesList);
+                console.log("tableau ligne 84: " + arrayVide);
+                console.log("ligne 82: " + attendeesList);
                 // récuperation du nom SOUCI
-                const attendeesLength = dateInfo.attendees.length;
-                console.log(attendeesLength);
-                // const attendeesList = dateInfo.attendees.name;
+                // let attendeesList = dateInfo.attendees.name;
                 attendeesRow.textContent = attendeesList;
                 console.log(attendeesRow.textContent);
                 // attendeesCell.appendChild(attendeesList);
                 attendeesRow.appendChild(attendeesCell);
                 table.appendChild(attendeesRow);
 
-            //     const availableCell = document.createElement('tr');
-            //     const availableList =document.createElement('td');
-            //     const availableListContent = dateInfo.attendees.map(attendee => attendee.available).join(', ');
-            //     availableList.textContent = availableListContent;
-            //     availableCell.textContent =availableList;
+                const availableCell = document.createElement('tr');
+                const availableList =document.createElement('td');
+                const availableListContent = dateInfo.attendees.map(attendee => attendee.available).join(', ');
+                console.log("ligne 93: " + availableListContent);
+                availableList.textContent = availableListContent;
+                console.log("ligne 94: " + availableList.textContent);
+                // availableCell.textContent =availableList;
+                availableCell.appendChild(availableList);
+                table.appendChild(availableCell);
             })
         });
         
