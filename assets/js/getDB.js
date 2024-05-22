@@ -6,9 +6,9 @@ export function getDB(){
     .then((data)=>{
         console.log(data);
         // efface les événement précédents
-        // sectionEvent.innerHTML = '';
-        
-        //affichage des événements existants
+        divEvent.innerHTML = '';
+         
+        // //affichage des événements existants
         data.forEach((element) => {
             const sectionEvent = document.createElement('section');
             const eventName= document.createElement('h3');
@@ -25,34 +25,43 @@ export function getDB(){
             eventDescription.textContent = element.description;
             sectionEvent.appendChild(eventDescription);
 
+            // création du tableau 
+            // création des en-têtes 
             const table = document.createElement('table');
-            const tableRowDates = document.createElement('tr');
-            const tableRowVide = document.createElement('td');
-            const tableDataDates = document.createElement('td');
-
-            // const tableRowUtil = document.createElement('tr');
-            // const tableDataUtil = document.createElement('tr');
+            const headerRow = document.createElement('tr');
+            const dateHeader = document.createElement('th');
+            dateHeader.textContent = 'Nom / Dates';
+            headerRow.appendChild(dateHeader);
 
             divEvent.appendChild(table);
-            table.appendChild(tableRowDates);
-            tableRowDates.appendChild(tableRowVide);
-            tableRowDates.appendChild(tableDataDates);
-            // table.appendChild(tableRowUtil);
-            // tableRowUtil.appendChild(tableDataUtil);
+            table.appendChild(headerRow);
+            headerRow.appendChild(dateHeader);
+           
 
             element.dates.forEach((dateInfo) => {
-                const tableRow = document.createElement('tr');
-                const tableCell = document.createElement('td');
-                tableCell.textContent = dateInfo.date;
-                tableRow.appendChild(tableCell);
-                const attendeesCell = document.createElement('td');
-                const attendeesList = dateInfo.attendees.map(attendee => attendee.name).join(', ');
-                attendeesCell.textContent = attendeesList;
-                tableRow.appendChild(attendeesCell);
-                table.appendChild(tableRow);
+                let i = 0;
+                const dataCell = document.createElement('td');
+                dataCell.textContent = dateInfo.date;
+                // console.log(dataCell.textContent);
+                headerRow.appendChild(dataCell);
+
+                const attendeesRow = document.createElement('tr');
+                const attendeesCell =document.createElement('td');
+                // const attendeesList = dateInfo.attendees.map(attendee => attendee.name).join(', ');
+                // récuperation du nom SOUCI
+                const attendeesList = dateInfo.attendees.name;
+                attendeesRow.textContent = attendeesList;
+                console.log(attendeesRow.textContent);
+                // attendeesCell.appendChild(attendeesList);
+                attendeesRow.appendChild(attendeesCell);
+
+            //     const availableCell = document.createElement('tr');
+            //     const availableList =document.createElement('td');
+            //     const availableListContent = dateInfo.attendees.map(attendee => attendee.available).join(', ');
+            //     availableList.textContent = availableListContent;
+            //     availableCell.textContent =availableList;
             })
         });
-
         
     })
     .catch((error) => {
