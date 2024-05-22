@@ -9,8 +9,8 @@ function displayForm() {
     selectButton.addEventListener("click", (event) => {
       const displayFormElement = document.querySelector(".form form");
       if (displayFormElement) {
-        // displayFormElement.style.display = 'block';
-        // console.log(displayFormElement);
+        displayFormElement.style.display = 'block';
+        console.log(displayFormElement);
         console.log("tu cliques sur moi bien joué");
       } else {
         console.error(
@@ -28,10 +28,8 @@ function takeInputValue() {
   let addInfo = document.querySelector("#form");
 
   if (addInfo) {
-    addInfo.addEventListener("submit", (elem) => {
+    addInfo.addEventListener("submit", (elem) => { //Event sur le bouton d'envoie des données vers l'api
       elem.preventDefault();
-
-      // console.log("test de l'event : "+addInfo);
 
       let title = document.querySelector("#event-title");
       console.log("le titre = " + title.value);
@@ -45,7 +43,7 @@ function takeInputValue() {
       let description = document.querySelector("#event-description");
       console.log(description.value);
 
-      const eventData = 
+      const eventData =  //on va stocker les valeurs des inputs dans un tableau d'objet, qu'on va ensuite envoyé à l'api avec les éléments nécessaires
         {
           "name": title.value,
           "dates":[date.value],
@@ -65,6 +63,9 @@ function takeInputValue() {
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));
+
+      addInfo.style.display="none";
+
     });
   } else {
     console.error("Le formulaire avec l'ID 'form' n'a pas été trouvé.");
