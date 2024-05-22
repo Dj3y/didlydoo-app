@@ -2,10 +2,12 @@
 export function validateForm(){
     const inputTitle = document.getElementById('event-title');
     const inputTitleValue = inputTitle.value;
+    // vérification qu'il y a du contenu dans l'input
     if (inputTitleValue.length === 0){
         alert('veillez écrire un titre');
         return false;
     }
+    // vérification que la longueur ne depasse pas 256 caractères
     else if(inputTitleValue.length >= 256){
         alert('le titre ne doit pas dépasser 256 caractères.');
         return false;
