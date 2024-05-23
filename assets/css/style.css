@@ -1,0 +1,11 @@
+main .events table {
+  border: 0.5px solid black;
+}
+main .events table th, main .events table td {
+  padding: 2px;
+}
+main .events .attendees-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
