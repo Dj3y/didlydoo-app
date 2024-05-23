@@ -1,8 +1,8 @@
 import { createForm } from "./form.js";
 import { validateForm } from "./validation_form.js";
-import { getDB } from "./getDB.js";
+import { getDBdebug } from "./getDBdebug.js"; 
 createForm();
-getDB();
+getDBdebug();
 
 
 createForm();
