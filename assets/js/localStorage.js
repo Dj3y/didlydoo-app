@@ -1,34 +1,5 @@
-import { createForm } from "./form.js";
-
-// Display of Form
-function displayForm() {
-  const selectButton = document.querySelector("#AddButton");
-  console.log(selectButton);
-
-  if (selectButton) {
-    selectButton.addEventListener("click", (event) => {
-      const displayFormElement = document.querySelector(".form form");
-      if (displayFormElement) {
-        displayFormElement.style.display = 'block';
-        console.log(displayFormElement);
-        // console.log("tu cliques sur moi bien joué");
-      } else {
-        console.error(
-          "Le formulaire avec la classe '.form' n'a pas été trouvé."
-        );
-      }
-    });
-  } else {
-    console.error("Le bouton avec l'ID 'AddButton' n'a pas été trouvé.");
-  }
-}
-
-// Take value of input
-function takeInputValue() {
-  let addInfo = document.querySelector("#form");
-  
 //localStorage ==============================================================================================================
-  if (addInfo) {
+if (addInfo) {
     // Pré-remplir les champs du formulaire avec les valeurs du localStorage s'ils existent
     document.querySelector("#event-title").value = localStorage.getItem('event-title') || '';
     document.querySelector("#event-author").value = localStorage.getItem('event-author') || '';
@@ -98,13 +69,4 @@ function takeInputValue() {
 
       addInfo.style.display = "none";
     });
-  } else {
-    console.error("Le formulaire avec l'ID 'form' n'a pas été trouvé.");
   }
-}
-
-// Appeler la fonction pour initialiser le formulaire
-takeInputValue();
-
-
-export { displayForm, takeInputValue };
