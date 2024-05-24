@@ -10,12 +10,12 @@ export function editEvents(id){
         description : descriptionEvent
     };
 
-    updateEvent(id, edit)
-    .then(editEvent => {
-      console.log(editEvent);
-      alert('Event mise à jour!');
-    })
-    .catch(error => console.error(error));
+    // updateEvent(id, edit)
+    // .then(editEvent => {
+    //   console.log(editEvent);
+    //   alert('Event mise à jour!');
+    // })
+    // .catch(error => console.error(error));
 
     async function updateEvent(id, edit){
         const response = await fetch(`http://localhost:3000/api/events/${id}`, {
