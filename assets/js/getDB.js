@@ -1,3 +1,5 @@
+import { editEvents } from "./editEvent.js";
+
 export function getDB(){
     const apiUrl = 'http://localhost:3000/api/events';
     fetch(apiUrl)
@@ -26,34 +28,107 @@ function eventsInfos(data) {
     console.log("nom " + attendantsList);  
     for (let element of data){
          // création de html pour afficher le titre, l'auteur et la description de l'événmenet
-         const sectionEvent = document.createElement('section');
-         divEvent.appendChild(sectionEvent);
-         
-         const eventName = document.createElement('h3');
-         eventName.textContent = element.name;
-         console.log("titre evenement: " + eventName.textContent);
-         sectionEvent.appendChild(eventName);
- 
-         const eventAuthor = document.createElement('h4');
-         eventAuthor.textContent = element.author;
-         sectionEvent.appendChild(eventAuthor);
- 
-         const eventDescription = document.createElement('p');
-         eventDescription.textContent = element.description;
-         sectionEvent.appendChild(eventDescription);
+        const divEventInfo = document.createElement('div');
+        divEventInfo.classList.add('div-events-info');
+        divEvent.appendChild(divEventInfo);
 
-         const dateEvent = attendantsList(element.dates);
-         const sectionAttendees = document.createElement('div');
-         sectionAttendees.classList.add("attendees-list");
-         sectionEvent.appendChild(sectionAttendees);
-         const sectionDetailAttendees = document.createElement('section');
-         sectionDetailAttendees.classList.add("attendees-detail");
-         sectionAttendees.appendChild(sectionDetailAttendees);
-         sectionDetailAttendees.innerHTML ='<h4 class="utilisateurs">utilisateurs</h4>';
-         for (let utilisateur of dateEvent){
+        const sectionInfoEvent = document.createElement('section');
+        sectionInfoEvent.classList.add('section-infos-event');
+        divEventInfo.appendChild(sectionInfoEvent);
+
+        const divInfoEditEvent = document.createElement('div');
+        divInfoEditEvent.classList.add('div-info-edit-event'); 
+         
+        const eventName = document.createElement('h3');
+        eventName.classList.add('event-title');
+        eventName.textContent = element.name;
+        console.log("titre evenement: " + eventName.textContent);
+        sectionInfoEvent.appendChild(eventName);
+ 
+        const eventAuthor = document.createElement('h4');
+        eventAuthor.classList.add('event-author');
+        eventAuthor.textContent = element.author;
+        sectionInfoEvent.appendChild(eventAuthor);
+ 
+        const eventDescription = document.createElement('p');
+        eventDescription.classList.add('event-description');
+        eventDescription.textContent = element.description;
+        sectionInfoEvent.appendChild(eventDescription);
+         //  edit et delete bouton 
+        const divEditDelete = document.createElement('div');
+        divEditDelete.classList.add('div-btn-edit-delete');
+
+        const btnEdit = document.createElement('img');
+        btnEdit.setAttribute('src', 'assets/images/pencil-solid.svg');
+        btnEdit.classList.add('btn-edit');
+        btnEdit.id = element.id;
+        console.log("id " + btnEdit.id);
+        divEventInfo.appendChild(divEditDelete);
+
+        const btnDelete = document.createElement('img');
+        btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');
+        divEditDelete.appendChild(btnEdit);
+        divEditDelete.appendChild(btnDelete);
+        divInfoEditEvent.appendChild(divEditDelete);
+        divInfoEditEvent.appendChild(sectionInfoEvent);
+        divEventInfo.appendChild(divInfoEditEvent);
+
+        btnEdit.addEventListener('click',() => {
+            console.log("ligne 78 " + element.id);
+            // formEdit(btnEdit.id);
+            // formulaire pour modification
+            const divFormEdit = document.createElement('div');
+            divFormEdit.classList.add('div-form-edit');
+            const formEdit = document.createElement('form');
+            formEdit.id='edit-form';
+            divFormEdit.appendChild(formEdit);
+            const divBtnEdit = document.querySelector('.div-btn-edit-delete');
+            divBtnEdit.appendChild(divFormEdit);
+            // titre
+            const labelTitleEdit = document.createElement('label');
+            labelTitleEdit.textContent = "Titre: ";
+            labelTitleEdit.setAttribute('for', 'event-title-edit');
+            formEdit.appendChild(labelTitleEdit);
+            const inputTitleEdit = document.createElement('input');
+            inputTitleEdit.setAttribute('type', 'text');
+            inputTitleEdit.setAttribute('id', 'event-title-edit');
+            inputTitleEdit.setAttribute('name', 'event-title-edit');
+            formEdit.appendChild(inputTitleEdit);
+            // description
+            const labelDescriptionEdit = document.createElement('label');
+            labelDescriptionEdit.textContent = "Description: ";
+            labelDescriptionEdit.setAttribute('for', 'event-description-edit');
+            formEdit.append(labelDescriptionEdit);
+            const inputDescriptionEdit = document.createElement('input');
+            inputDescriptionEdit.setAttribute('type', 'text');
+            inputDescriptionEdit.setAttribute('id', 'event-description-edit');
+            inputDescriptionEdit.setAttribute('name', 'event-description-edit');
+            formEdit.append(inputDescriptionEdit);
+            // bouton 
+            const btnFormEdit = document.createElement('button');
+            btnFormEdit.textContent = "Mise à jour";
+            btnFormEdit.setAttribute('type', 'submit');
+            formEdit.appendChild(btnFormEdit);
+            console.log("ligne 112 " + btnEdit.id);
+            console.log(inputTitleEdit.value);
+            btnFormEdit.addEventListener('click', editEvents(btnEdit.id));
+            }
+        );
+
+        const dateEvent = attendantsList(element.dates);
+        const sectionAttendees = document.createElement('div');
+        sectionAttendees.classList.add("attendees-list");
+        divEventInfo.appendChild(sectionAttendees);
+         
+
+        const sectionDetailAttendees = document.createElement('section');
+        sectionDetailAttendees.classList.add("attendees-detail");
+        sectionAttendees.appendChild(sectionDetailAttendees);
+        sectionDetailAttendees.innerHTML ='<h4 class="utilisateurs">utilisateurs</h4>';
+        for (let utilisateur of dateEvent){
             sectionDetailAttendees.innerHTML += `<p>${utilisateur}</p>`;
          }
-         for (let eventDate of element.dates){
+        for (let eventDate of element.dates){
             const sectionDate = document.createElement('section');
             sectionDate.classList.add('date-event');
             sectionDate.innerHTML = `<h4>${eventDate.date}</h4>`;
@@ -62,6 +137,7 @@ function eventsInfos(data) {
             const attendees = document.createElement('div');
             sectionDate.appendChild(attendees);
             attendees.classList.add("attendees");
+
             for (let attendee of eventDate.attendees){
                 if (attendee.available === null){
                     attendees.innerHTML += "<p>pas de réponse</p>";
@@ -77,5 +153,6 @@ function eventsInfos(data) {
     }
 
 }
+
 
 

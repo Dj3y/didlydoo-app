@@ -1,13 +1,12 @@
 import { createForm } from "./form.js";
-import { validateForm } from "./validation_form.js";
-import { getDB } from "./getDB.js";
 createForm();
+
+import { getDB } from "./getDB.js";
 getDB();
 
-
-createForm();
 // import { validateForm } from "./validation_form.js";
 // validateForm();
+
 import { remaningTime } from "./remaningTime.js";
 remaningTime();
 
@@ -17,4 +16,10 @@ displayForm();
 import { takeInputValue } from "./buttonEvent.js";
 takeInputValue();
 
+import { editEvents } from "./editEvent.js";
+editEvents();
+// formEditEvent();
+
+import { deleteEvents } from "./delete.js";
+deleteEvents();
 

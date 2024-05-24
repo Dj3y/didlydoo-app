@@ -1,8 +1,5 @@
-main .events table {
-  border: 0.5px solid black;
-}
-main .events table th, main .events table td {
-  padding: 2px;
+main .events img {
+  width: 2%;
 }
 main .events .attendees-list {
   display: flex;
