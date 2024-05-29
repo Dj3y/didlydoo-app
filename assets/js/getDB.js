@@ -66,12 +66,16 @@ function eventsInfos(data) {
         divEventInfo.appendChild(divEditDelete);
 
         const btnDelete = document.createElement('img');
-        btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');
+
+        btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');  
+        btnDelete.id = element.id+1;
+        btnDelete.classList.add('trashDelete');
         divEditDelete.appendChild(btnEdit);
         divEditDelete.appendChild(btnDelete);
         divInfoEditEvent.appendChild(divEditDelete);
         divInfoEditEvent.appendChild(sectionInfoEvent);
         divEventInfo.appendChild(divInfoEditEvent);
+        
 
         btnEdit.addEventListener('click',() => {
             // console.log("ligne 78 " + element.id);
@@ -126,6 +130,8 @@ function eventsInfos(data) {
             }
         );
 
+    
+
         const dateEvent = attendantsList(element.dates);
         const sectionAttendees = document.createElement('div');
         sectionAttendees.classList.add("attendees-list");
@@ -161,8 +167,12 @@ function eventsInfos(data) {
                 }
             }
          }
+        
     }
-
+    let trash = document.querySelector('.trashDelete'); // Assurez-vous de remplacer '.your-trash-element' par le sélecteur approprié
+    trash.addEventListener('click', (event) => {
+        let test = console.log("je suis trooop fort zebi");
+    });
 }
 
 
