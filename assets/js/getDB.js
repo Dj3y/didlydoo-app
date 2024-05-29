@@ -42,7 +42,7 @@ function eventsInfos(data) {
         const eventName = document.createElement('h3');
         eventName.classList.add('event-title');
         eventName.textContent = element.name;
-        console.log("titre evenement: " + eventName.textContent);
+        // console.log("titre evenement: " + eventName.textContent);
         sectionInfoEvent.appendChild(eventName);
  
         const eventAuthor = document.createElement('h4');
@@ -62,7 +62,7 @@ function eventsInfos(data) {
         btnEdit.setAttribute('src', 'assets/images/pencil-solid.svg');
         btnEdit.classList.add('btn-edit');
         btnEdit.id = element.id;
-        console.log("id " + btnEdit.id);
+        // console.log("id " + btnEdit.id);
         divEventInfo.appendChild(divEditDelete);
 
         const btnDelete = document.createElement('img');
@@ -74,7 +74,7 @@ function eventsInfos(data) {
         divEventInfo.appendChild(divInfoEditEvent);
 
         btnEdit.addEventListener('click',() => {
-            console.log("ligne 78 " + element.id);
+            // console.log("ligne 78 " + element.id);
             // formEdit(btnEdit.id);
             // formulaire pour modification
             const divFormEdit = document.createElement('div');
@@ -88,12 +88,23 @@ function eventsInfos(data) {
             const labelTitleEdit = document.createElement('label');
             labelTitleEdit.textContent = "Titre: ";
             labelTitleEdit.setAttribute('for', 'event-title-edit');
-            formEdit.appendChild(labelTitleEdit);
+            formEdit.append(labelTitleEdit);
             const inputTitleEdit = document.createElement('input');
             inputTitleEdit.setAttribute('type', 'text');
             inputTitleEdit.setAttribute('id', 'event-title-edit');
             inputTitleEdit.setAttribute('name', 'event-title-edit');
             formEdit.appendChild(inputTitleEdit);
+
+            const labelAuthorEdit = document.createElement('label');
+            labelAuthorEdit.textContent = "Author: ";
+            labelAuthorEdit.setAttribute('for', 'event-author-edit');
+            formEdit.appendChild(labelAuthorEdit);
+            const inputAuthorEdit = document.createElement('input');
+            inputAuthorEdit.setAttribute('type', 'text');
+            inputAuthorEdit.setAttribute('id', 'event-author-edit');
+            inputAuthorEdit.setAttribute('name', 'event-author-edit');
+            formEdit.appendChild(inputAuthorEdit);
+        
             // description
             const labelDescriptionEdit = document.createElement('label');
             labelDescriptionEdit.textContent = "Description: ";
@@ -109,8 +120,8 @@ function eventsInfos(data) {
             btnFormEdit.textContent = "Mise à jour";
             btnFormEdit.setAttribute('type', 'submit');
             formEdit.appendChild(btnFormEdit);
-            console.log("ligne 112 " + btnEdit.id);
-            console.log(inputTitleEdit.value);
+            // console.log("ligne 112 " + btnEdit.id);
+            // console.log(inputTitleEdit.value);
             btnFormEdit.addEventListener('click', editEvents(btnEdit.id));
             }
         );
