@@ -3,13 +3,12 @@ getDB();
 
 export function editEvents(id, newData){
     console.log("editEvents " + id);
-    const titleEvent =document.getElementsByClassName('event-title-edit');
-    const authorEvent = document.getElementsByClassName('event-author-edit');
-    const descriptionEvent = document.getElementsByClassName('event-description-edit');
-    const btnEdit = document.getElementsByClassName('event-btn-edit');
+    const titleEvent =document.querySelector('.event-title-edit');
+    const authorEvent = document.querySelector('.event-author-edit');
+    const descriptionEvent = document.querySelector('.event-description-edit');
+    const btnEdit = document.querySelector('.event-btn-edit');
     console.log("bouton edit " + btnEdit);
     // const btnFormEdit = document.createElement('button');
-    btnEdit.addEventListener('click', (event) =>{
         console.log("editEvent ligne 13 " + btnEdit);
         const edit = {
             name: titleEvent.value,
@@ -39,7 +38,7 @@ export function editEvents(id, newData){
             }
             return response.json();
         }
-    })
+ 
 
     const divFormEdit = document.getElementsByClassName('div-form-edit');
     titleEvent.value = newData[0].name;
