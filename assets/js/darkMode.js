@@ -1,9 +1,7 @@
-console.log("JE SUIS LE MEILLEUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUR");
-
 export function darkMode(){
     let darkMode = localStorage.getItem('darkMode');
     const btnDarkMode = document.querySelector('#dark_mode'); 
-    console.log("DARKMODE " + btnDarkMode);
+    // console.log("DARKMODE " + btnDarkMode);
     let img = document.createElement('img');
     btnDarkMode.appendChild(img);
     img.setAttribute('src', './assets/images/moon.png');
@@ -29,11 +27,11 @@ export function darkMode(){
         darkMode = localStorage.getItem('darkMode');
         if(darkMode !== 'active'){
             activeDarkMode();
-            console.log(darkMode);
+            // console.log(darkMode);
         }
         else{
             disableDarkMode();
-            console.log(darkMode);
+            // console.log(darkMode);
         }
     });
 }
@@ -41,7 +39,7 @@ export function darkMode(){
 export function lightMode(){
     let lightMode = localStorage.getItem('lightMode');
     const btnLightMode = document.querySelector('#light_mode'); 
-    console.log("LIGHTMODE " + btnLightMode);
+    // console.log("LIGHTMODE " + btnLightMode);
     let img = document.createElement('img');
     btnLightMode.appendChild(img);
     img.setAttribute('src', './assets/images/sun.png');
@@ -67,11 +65,11 @@ export function lightMode(){
         lightMode = localStorage.getItem('lightMode');
         if(lightMode !== 'active'){
             activeLightMode();
-            console.log(lightMode);
+            // console.log(lightMode);
         }
         else{
             disableLightMode();
-            console.log(lightMode);
+            // console.log(lightMode);
         }
     });
 }

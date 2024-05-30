@@ -25,7 +25,7 @@ function eventsInfos(data) {
     const divEvent = document.querySelector('.events');
     // vider le div
     divEvent.innerHTML = "";    
-    console.log("nom " + attendantsList);  
+    // console.log("nom " + attendantsList);  
     for (let element of data){
          // création de html pour afficher le titre, l'auteur et la description de l'événmenet
         const divEventInfo = document.createElement('div');
@@ -125,15 +125,22 @@ function eventsInfos(data) {
             inputDescriptionEdit.setAttribute('id', 'event-description-edit');
             inputDescriptionEdit.setAttribute('name', 'event-description-edit');
             formEdit.append(inputDescriptionEdit);
-            // bouton 
+            // bouton edite
+         
             const btnFormEdit = document.createElement('button');
             btnFormEdit.classList.add('event-btn-edit');
             btnFormEdit.textContent = "Mise à jour";
-            btnFormEdit.setAttribute('type', 'submit');
+            btnFormEdit.setAttribute('type', 'button');
             formEdit.appendChild(btnFormEdit);
-            console.log("ligne 112 " + btnEditImg.id);
-            console.log(inputTitleEdit.value);
-            btnFormEdit.addEventListener('click', editEvents(btnEditImg.id));
+
+            let testButtonEdit = document.querySelector('.event-btn-edit');
+            testButtonEdit.addEventListener('click', (edit)=>{
+                const takeTitle = document.querySelector('.event-title-edit');
+                console.log('TEST TAKE TITLE = '+takeTitle);
+            })
+            // console.log("ligne 112 " + btnEditImg.id);
+            // console.log(inputTitleEdit.value);
+        //     btnFormEdit.addEventListener('click', editEvents(btnEditImg.id));
             }
         );
 

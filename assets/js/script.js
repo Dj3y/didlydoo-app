@@ -19,6 +19,6 @@ import { editEvents } from "./editEvent.js";
 editEvents();
 // formEditEvent();
 
-import { deleteEvents } from "./delete.js";
-deleteEvents();
+// import { deleteEvents } from "./delete.js";
+// deleteEvents();
 
