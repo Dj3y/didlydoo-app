@@ -74,7 +74,7 @@ main .events img {
   width: 2%;
 }
 main .events .div-form-edit {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
