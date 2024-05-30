@@ -2,14 +2,16 @@ body{
     overflow-x: hidden;
 }
 header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     button{
         background: none;
+        width: 5%;
+        height: 6vh;
         border: none;
-        position: absolute;
-        top: 2%;
-        right: -12%;
         img{
-            width: 15%;
+            width: 116%;
             // margin: 2vw;
         }
     }

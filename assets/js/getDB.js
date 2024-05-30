@@ -25,7 +25,7 @@ function eventsInfos(data) {
     const divEvent = document.querySelector('.events');
     // vider le div
     divEvent.innerHTML = "";    
-    // console.log("nom " + attendantsList);  
+    console.log("nom " + attendantsList);  
     for (let element of data){
          // création de html pour afficher le titre, l'auteur et la description de l'événmenet
         const divEventInfo = document.createElement('div');
@@ -66,20 +66,17 @@ function eventsInfos(data) {
         divEventInfo.appendChild(divEditDelete);
 
         const btnDelete = document.createElement('img');
-
-        btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');  
-        btnDelete.id = element.id+1;
-        btnDelete.classList.add('trashDelete');
-        divEditDelete.appendChild(btnEdit);
+        btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');
+        divEditDelete.appendChild(btnEditImg);
         divEditDelete.appendChild(btnDelete);
         divInfoEditEvent.appendChild(divEditDelete);
         divInfoEditEvent.appendChild(sectionInfoEvent);
         divEventInfo.appendChild(divInfoEditEvent);
-        
 
-        btnEdit.addEventListener('click',() => {
-            // console.log("ligne 78 " + element.id);
-            // formEdit(btnEdit.id);
+        // création du formulaire pour modification d'un evenement 
+        btnEditImg.addEventListener('click',() => {
+            console.log("ligne 78 " + element.id);
+          
             // formulaire pour modification
             const divFormEdit = document.createElement('div');
             divFormEdit.classList.add('div-form-edit');
@@ -132,20 +129,13 @@ function eventsInfos(data) {
             const btnFormEdit = document.createElement('button');
             btnFormEdit.classList.add('event-btn-edit');
             btnFormEdit.textContent = "Mise à jour";
-            btnFormEdit.setAttribute('type', 'button');
-            btnFormEdit.classList.add('TestButton');
+            btnFormEdit.setAttribute('type', 'submit');
             formEdit.appendChild(btnFormEdit);
-            console.log("ligne 112 " + btnEdit.id);
+            console.log("ligne 112 " + btnEditImg.id);
             console.log(inputTitleEdit.value);
-            btnFormEdit.addEventListener('click', editEvents(btnEdit.id));
+            btnFormEdit.addEventListener('click', editEvents(btnEditImg.id));
             }
         );
-
-        let trash = document.querySelector('.trashDelete'); // Assurez-vous de remplacer '.your-trash-element' par le sélecteur approprié
-        trash.addEventListener('click', (event) => {
-            let test = console.log("je suis trooop fort zebi");
-        });
-    
 
         const dateEvent = attendantsList(element.dates);
         const sectionAttendees = document.createElement('div');
@@ -182,9 +172,8 @@ function eventsInfos(data) {
                 }
             }
          }
-  
     }
-    
+
 }
 
 
