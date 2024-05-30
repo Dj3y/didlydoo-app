@@ -1,0 +1,16 @@
+body{
+    overflow-x: hidden;
+}
+header{
+    button{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 2%;
+        right: -12%;
+        img{
+            width: 15%;
+            // margin: 2vw;
+        }
+    }
+}

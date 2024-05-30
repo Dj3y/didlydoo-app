@@ -8,6 +8,15 @@ export function createForm(){
     // form.setAttribute('action', '/index.html');
     divForm.appendChild(form);
 
+    // bouton pour cacher le formulaire
+    const btnFermer = document.createElement('button');
+    btnFermer.classList.add('btn-fermer');
+    btnFermer.textContent = "X";
+    btnFermer.setAttribute('type', 'submit');
+    form.appendChild(btnFermer);
+    btnFermer.addEventListener('click', event=>{
+        divForm.display = "none";
+    });
     // titre 
     const labelTitle = document.createElement('label');
     labelTitle.textContent = "Titre: ";
@@ -54,6 +63,7 @@ export function createForm(){
 
     // bouton 
     const btnForm = document.createElement('button');
+    btnForm.classList.add('btnForm');
     btnForm.textContent = "Ajouter";
     btnForm.setAttribute('type', 'submit');
     form.appendChild(btnForm);

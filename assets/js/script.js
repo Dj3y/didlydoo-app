@@ -1,18 +1,19 @@
+
 import { createForm } from "./form.js";
 createForm();
 
+
 import { getDB } from "./getDB.js";
 getDB();
-
-// import { validateForm } from "./validation_form.js";
-// validateForm();
-
 
 import { displayForm } from "./buttonEvent.js";
 displayForm();
 
 import { takeInputValue } from "./buttonEvent.js";
 takeInputValue();
+
+import { darkMode } from "./darkMode.js";
+darkMode();
 
 import { editEvents } from "./editEvent.js";
 editEvents();

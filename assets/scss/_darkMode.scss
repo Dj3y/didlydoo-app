@@ -1,0 +1,85 @@
+$backgrd_drk: rgb(38, 36, 24);
+$backgrd_lght: rgb(246, 245, 245);
+.darkmode{
+    background-color: $backgrd_drk;
+    color: wheat;
+    transition-duration: 500ms;
+    main{
+        #form{
+            label{
+                color: rgb(112, 73, 73);
+            }
+        }
+        .events{
+                img{
+                    fill: white;
+                    filter: grayscale(1);
+            }
+            .attendees-list{
+                section{
+                    &.attendees-detail{
+                    h4, p{
+                        color: rgb(255, 235, 205);
+                        background-color: rgb(229, 158, 72);
+                        
+                    }
+                }
+                &.date-event{
+                        h4{
+                            color: rgb(255, 235, 205);
+                            background-color: rgb(229, 158, 72);
+                        }
+                        .attendees{
+                            p{
+                                background-color: rgb(255, 235, 205);
+                                color: rgb(112, 73, 73);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.lightmode{
+    background-color: $backgrd_lght;
+    color: rgb(0, 0, 0);
+    transition-duration: 700ms;
+    main{
+        #form{
+            label{
+                color: rgb(0, 0, 0);
+            }
+        }
+        .events{
+                img{
+                    fill: white;
+                    filter: grayscale(1);
+            }
+            .attendees-list{
+                section{
+                    &.attendees-detail{
+                    h4, p{
+                        color: rgb(255, 235, 205);
+                        background-color: rgb(229, 158, 72);
+                        
+                    }
+                }
+                &.date-event{
+                        h4{
+                            color: rgb(255, 235, 205);
+                            background-color: rgb(229, 158, 72);
+                        }
+                        .attendees{
+                            p{
+                                background-color: rgb(255, 235, 205);
+                                color: rgb(112, 73, 73);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

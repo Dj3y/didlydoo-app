@@ -1,5 +1,5 @@
-// import { getDB } from "./getDB.js";
-// getDB();
+import { getDB } from "./getDB.js";
+getDB();
 
 export function editEvents(id){
 
@@ -19,10 +19,16 @@ export function editEvents(id){
 
     //   let authorEdit  = document.querySelector("#event-author");
     //   authorEdit.textContent='';
+    //   let authorEdit  = document.querySelector("#event-author");
+    //   authorEdit.textContent='';
 
     //   let dateEdit  = document.querySelector("#event-date");
     //   dateEdit.textContent='';
+    //   let dateEdit  = document.querySelector("#event-date");
+    //   dateEdit.textContent='';
 
+    //   let descriptionEdit  = document.querySelector("#event-description");
+    //   descriptionEdit.textContent='';
     //   let descriptionEdit  = document.querySelector("#event-description");
     //   descriptionEdit.textContent='';
     const edit =  {
