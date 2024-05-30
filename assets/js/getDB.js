@@ -42,7 +42,7 @@ function eventsInfos(data) {
         const eventName = document.createElement('h3');
         eventName.classList.add('event-title');
         eventName.textContent = element.name;
-        console.log("titre evenement: " + eventName.textContent);
+        // console.log("titre evenement: " + eventName.textContent);
         sectionInfoEvent.appendChild(eventName);
  
         const eventAuthor = document.createElement('h4');
@@ -62,7 +62,7 @@ function eventsInfos(data) {
         btnEditImg.setAttribute('src', 'assets/images/pencil-solid.svg');
         btnEditImg.classList.add('btn-edit');
         btnEditImg.id = element.id;
-        console.log("id " + btnEditImg.id);
+        // console.log("id " + btnEditImg.id);
         divEventInfo.appendChild(divEditDelete);
 
         const btnDelete = document.createElement('img');
@@ -98,12 +98,23 @@ function eventsInfos(data) {
             const labelTitleEdit = document.createElement('label');
             labelTitleEdit.textContent = "Titre: ";
             labelTitleEdit.setAttribute('for', 'event-title-edit');
-            formEdit.appendChild(labelTitleEdit);
+            formEdit.append(labelTitleEdit);
             const inputTitleEdit = document.createElement('input');
             inputTitleEdit.setAttribute('type', 'text');
             inputTitleEdit.setAttribute('id', 'event-title-edit');
             inputTitleEdit.setAttribute('name', 'event-title-edit');
             formEdit.appendChild(inputTitleEdit);
+
+            const labelAuthorEdit = document.createElement('label');
+            labelAuthorEdit.textContent = "Author: ";
+            labelAuthorEdit.setAttribute('for', 'event-author-edit');
+            formEdit.appendChild(labelAuthorEdit);
+            const inputAuthorEdit = document.createElement('input');
+            inputAuthorEdit.setAttribute('type', 'text');
+            inputAuthorEdit.setAttribute('id', 'event-author-edit');
+            inputAuthorEdit.setAttribute('name', 'event-author-edit');
+            formEdit.appendChild(inputAuthorEdit);
+        
             // description
             const labelDescriptionEdit = document.createElement('label');
             labelDescriptionEdit.textContent = "Description: ";

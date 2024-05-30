@@ -7,8 +7,6 @@ getDB();
 // import { validateForm } from "./validation_form.js";
 // validateForm();
 
-import { remaningTime } from "./remaningTime.js";
-remaningTime();
 
 import { displayForm } from "./buttonEvent.js";
 displayForm();
