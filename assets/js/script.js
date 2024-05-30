@@ -4,10 +4,6 @@ createForm();
 import { getDB } from "./getDB.js";
 getDB();
 
-// import { validateForm } from "./validation_form.js";
-// validateForm();
-
-
 import { displayForm } from "./buttonEvent.js";
 displayForm();
 
@@ -23,3 +19,6 @@ deleteEvents();
 
 import { darkMode } from "./darkMode.js";
 darkMode();
+
+import { remaningTime } from "./remaningTime.js";
+remaningTime();
