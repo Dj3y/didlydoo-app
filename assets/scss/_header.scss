@@ -1,13 +1,16 @@
+body{
+    overflow-x: hidden;
+}
 header{
     button{
-        background: red;
-        width: 20px;
+        background: none;
         border: none;
         position: absolute;
-        left: 5px;
+        top: 2%;
+        right: -12%;
         img{
-            width: 18vw;
-            margin: 2vw 0;
+            width: 15%;
+            // margin: 2vw;
         }
     }
 }

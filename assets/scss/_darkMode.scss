@@ -1,30 +1,40 @@
-$backgrd_drk: rgb(19, 18, 11);
+$backgrd_drk: rgb(38, 36, 24);
 .darkmode{
     background-color: $backgrd_drk;
     color: wheat;
-    header{
-        background-color: $backgrd_drk;
-        input{
-            background-color: rgb(48, 47, 43);
-            color: wheat;
-            &:hover{
-                background-color: rgb(170, 147, 119);
-                color: rgb(91, 72, 49);
+    main{
+        #form{
+            label{
+                color: rgb(112, 73, 73);
             }
         }
-    }
-    #proj_form{
-        background-color: rgb(62, 46, 42);
-    }
-    input{
-        background-color: rgba(105, 76, 69);
-        color: wheat;
-    }
-    main{
-        .cards{
-            background-color: rgb(62, 46, 42);
-            .project{
-                background-color: rgb(105, 76, 69);
+        .events{
+                img{
+                    fill: white;
+                    filter: grayscale(1);
+            }
+            .attendees-list{
+                section{
+                    &.attendees-detail{
+                    h4, p{
+                        color: rgb(255, 235, 205);
+                        background-color: rgb(229, 158, 72);
+                        
+                    }
+                }
+                &.date-event{
+                        h4{
+                            color: rgb(255, 235, 205);
+                            background-color: rgb(229, 158, 72);
+                        }
+                        .attendees{
+                            p{
+                                background-color: rgb(255, 235, 205);
+                                color: rgb(112, 73, 73);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

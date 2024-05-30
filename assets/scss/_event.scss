@@ -121,6 +121,7 @@ main{
                 padding: 2% 1%;
             }
             #event-description-edit{
+                margin-top: 4%;
                 width: 30%;
                 height: 10vh;
             }
@@ -130,8 +131,8 @@ main{
                 border:none;
                 border-radius: 10px;
                 position: relative;
-                left: 90%;
-                margin-top: 15%;
+                top: 70px;
+                left: 50%;
                 padding: 1% 2%;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
                 &:hover{
@@ -158,13 +159,7 @@ main{
                     text-align: center;
                     &.attendees-detail{
                         font-weight: bold;
-                        h4{
-                            background-color: rgb(255, 235, 205);
-                            margin: 4%;
-                            padding: 3%;
-                        }
-                        p{
-                            
+                        h4, p{
                             background-color: rgb(255, 235, 205);
                             margin: 4%;
                             padding: 3%;
