@@ -1,5 +1,7 @@
+
 import { createForm } from "./form.js";
 createForm();
+
 
 import { getDB } from "./getDB.js";
 getDB();
@@ -10,6 +12,9 @@ displayForm();
 import { takeInputValue } from "./buttonEvent.js";
 takeInputValue();
 
+import { darkMode } from "./darkMode.js";
+darkMode();
+
 import { editEvents } from "./editEvent.js";
 editEvents();
 // formEditEvent();
@@ -17,8 +22,3 @@ editEvents();
 import { deleteEvents } from "./delete.js";
 deleteEvents();
 
-import { darkMode } from "./darkMode.js";
-darkMode();
-
-import { remaningTime } from "./remaningTime.js";
-remaningTime();

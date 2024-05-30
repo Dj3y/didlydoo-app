@@ -1,6 +1,9 @@
+console.log("JE SUIS LE MEILLEUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUR");
+
 export function darkMode(){
     let darkMode = localStorage.getItem('darkMode');
     const btndDarkMode = document.querySelector('#dark_mode'); 
+    console.log("DARKMODE"+btndDarkMode);
     let img = document.createElement('img');
     btndDarkMode.appendChild(img);
     img.setAttribute('src', './assets/images/moon.png');
