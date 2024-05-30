@@ -25,7 +25,7 @@ function eventsInfos(data) {
     const divEvent = document.querySelector('.events');
     // vider le div
     divEvent.innerHTML = "";    
-    console.log("nom " + attendantsList);  
+    // console.log("nom " + attendantsList);  
     for (let element of data){
          // création de html pour afficher le titre, l'auteur et la description de l'événmenet
         const divEventInfo = document.createElement('div');
@@ -122,14 +122,19 @@ function eventsInfos(data) {
             // bouton 
             const btnFormEdit = document.createElement('button');
             btnFormEdit.textContent = "Mise à jour";
-            btnFormEdit.setAttribute('type', 'submit');
+            btnFormEdit.setAttribute('type', 'button');
+            btnFormEdit.classList.add('TestButton');
             formEdit.appendChild(btnFormEdit);
-            // console.log("ligne 112 " + btnEdit.id);
-            // console.log(inputTitleEdit.value);
+            console.log("ligne 112 " + btnEdit.id);
+            console.log(inputTitleEdit.value);
             btnFormEdit.addEventListener('click', editEvents(btnEdit.id));
             }
         );
 
+        let trash = document.querySelector('.trashDelete'); // Assurez-vous de remplacer '.your-trash-element' par le sélecteur approprié
+        trash.addEventListener('click', (event) => {
+            let test = console.log("je suis trooop fort zebi");
+        });
     
 
         const dateEvent = attendantsList(element.dates);
@@ -167,12 +172,9 @@ function eventsInfos(data) {
                 }
             }
          }
-        
+  
     }
-    let trash = document.querySelector('.trashDelete'); // Assurez-vous de remplacer '.your-trash-element' par le sélecteur approprié
-    trash.addEventListener('click', (event) => {
-        let test = console.log("je suis trooop fort zebi");
-    });
+    
 }
 
 

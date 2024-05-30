@@ -59,5 +59,6 @@ export function createForm(){
     form.appendChild(btnForm);
     btnForm.addEventListener('click', validateForm);
 
+    
     form.style.display='none';
 }
