@@ -58,24 +58,25 @@ function eventsInfos(data) {
         const divEditDelete = document.createElement('div');
         divEditDelete.classList.add('div-btn-edit-delete');
 
-        const btnEdit = document.createElement('img');
-        btnEdit.setAttribute('src', 'assets/images/pencil-solid.svg');
-        btnEdit.classList.add('btn-edit');
-        btnEdit.id = element.id;
-        console.log("id " + btnEdit.id);
+        const btnEditImg = document.createElement('img');
+        btnEditImg.setAttribute('src', 'assets/images/pencil-solid.svg');
+        btnEditImg.classList.add('btn-edit');
+        btnEditImg.id = element.id;
+        console.log("id " + btnEditImg.id);
         divEventInfo.appendChild(divEditDelete);
 
         const btnDelete = document.createElement('img');
         btnDelete.setAttribute('src', 'assets/images/trash-can-solid.svg');
-        divEditDelete.appendChild(btnEdit);
+        divEditDelete.appendChild(btnEditImg);
         divEditDelete.appendChild(btnDelete);
         divInfoEditEvent.appendChild(divEditDelete);
         divInfoEditEvent.appendChild(sectionInfoEvent);
         divEventInfo.appendChild(divInfoEditEvent);
 
-        btnEdit.addEventListener('click',() => {
+        // création du formulaire pour modification d'un evenement 
+        btnEditImg.addEventListener('click',() => {
             console.log("ligne 78 " + element.id);
-            // formEdit(btnEdit.id);
+          
             // formulaire pour modification
             const divFormEdit = document.createElement('div');
             divFormEdit.classList.add('div-form-edit');
@@ -84,6 +85,15 @@ function eventsInfos(data) {
             divFormEdit.appendChild(formEdit);
             const divBtnEdit = document.querySelector('.div-btn-edit-delete');
             divBtnEdit.appendChild(divFormEdit);
+            // bouton pour cacher le formulaire
+            const btnFermerEdit = document.createElement('button');
+            btnFermerEdit.classList.add('btn-fermer-edit');
+            btnFermerEdit.textContent = "X";
+            btnFermerEdit.setAttribute('type', 'submit');
+            formEdit.appendChild(btnFermerEdit);
+            btnFermerEdit.addEventListener('click', event=>{
+                divForm.display = "none";
+            });
             // titre
             const labelTitleEdit = document.createElement('label');
             labelTitleEdit.textContent = "Titre: ";
@@ -106,12 +116,13 @@ function eventsInfos(data) {
             formEdit.append(inputDescriptionEdit);
             // bouton 
             const btnFormEdit = document.createElement('button');
+            btnFormEdit.classList.add('event-btn-edit');
             btnFormEdit.textContent = "Mise à jour";
             btnFormEdit.setAttribute('type', 'submit');
             formEdit.appendChild(btnFormEdit);
-            console.log("ligne 112 " + btnEdit.id);
+            console.log("ligne 112 " + btnEditImg.id);
             console.log(inputTitleEdit.value);
-            btnFormEdit.addEventListener('click', editEvents(btnEdit.id));
+            btnFormEdit.addEventListener('click', editEvents(btnEditImg.id));
             }
         );
 

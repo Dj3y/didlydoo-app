@@ -9,7 +9,7 @@ function displayForm() {
     selectButton.addEventListener("click", (event) => {
       const displayFormElement = document.querySelector(".form form");
       if (displayFormElement) {
-        displayFormElement.style.display = 'block';
+        displayFormElement.style.display = 'flex';
         console.log(displayFormElement);
         // console.log("tu cliques sur moi bien joué");
       } else {

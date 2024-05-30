@@ -23,3 +23,5 @@ editEvents();
 import { deleteEvents } from "./delete.js";
 deleteEvents();
 
+import { darkMode } from "./darkMode.js";
+darkMode();
